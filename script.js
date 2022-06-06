@@ -1,7 +1,7 @@
 const display = document.getElementById("display");
 const numeros = document.querySelectorAll("[id*=tecla]");
 const operadores = document.querySelectorAll("[id*=operador");
-//Esta true pq é um novo numero que vai ser escrito no display
+//Está true porque é um novo número que vai ser escrito no display
 let novoNumero = true;
 let operador;
 let numeroAnterior;
@@ -12,9 +12,9 @@ const calcular = () => {
   //Primeiro ele vai verificar se existe uma operação pendente
   if (operacaoPendente()) {
     const numeroAtual = parseFloat(display.textContent);
-    // Para atualizar a tela e aparecer um numero novo
+    // Para atualizar e aparecer um número novo
     novoNumero = true;
-    //Aonde colocar a operação que vai dar o resultado na calculadora
+    //Aonde coloco a operação que vai dar o resultado na calculadora
     if (operador == "+") {
       atualizarDisplay(numeroAnterior + numeroAtual);
     } else if (operador == "-") {
@@ -29,21 +29,21 @@ const calcular = () => {
   }
 };
 
-//Eventos do display
+//Evento do display
 const atualizarDisplay = (texto) => {
   if (novoNumero) {
     display.textContent = texto;
     novoNumero = false;
   } else {
-    //ele esta concatenando o texto do display
+    //Está concatenando o texto do display
     display.textContent += texto;
   }
 };
 const inserirNumero = (evento) => atualizarDisplay(evento.target.textContent);
 //Evento de operador
-//com o novoNumero declarado aqui ele faz a substituição do numero do display guardando ele na memoria quando eu apertar em um operador
+//Com o novoNumero declarado aqui ela faz a substituição do número no display, guardando ele na memória quando apertar em um operador novo
 const selecionarOperador = (evento) => {
-  //! quer dizer nao, entao se nao for um novo numero ele faz todo o processo
+  //! Quer dizer não, então se não for um novo número ela faz todo esse processo
   if (!novoNumero) {
     calcular();
     novoNumero = true;
@@ -56,17 +56,17 @@ operadores.forEach((operador) =>
   operador.addEventListener("click", selecionarOperador)
 );
 
-//Evento dos numeros
+//Evento dos números
 numeros.forEach((numero) => numero.addEventListener("click", inserirNumero));
 //Funcionamento do botão de =
-//Dessa maneira eu declarei a variavel ativar igual, que não vai pegar mais os operadores no momento que eu aperta no =
+//Dessa maneira eu declarei a variável ativar igual, que não vai pegar mais os operadores no momento que aperta no =
 const ativarIgual = () => {
   calcular();
   operador = undefined;
 };
 document.getElementById("igual").addEventListener("click", ativarIgual);
 
-//Botao de apagar o display
+//Botão de apagar o display
 const limparDisplay = () => (display.textContent = "  ");
 document
   .getElementById("limparDisplay")
