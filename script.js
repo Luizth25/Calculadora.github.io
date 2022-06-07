@@ -36,7 +36,7 @@ const atualizarDisplay = (texto) => {
     novoNumero = false;
   } else {
     //Está concatenando o texto do display
-    display.textContent += texto;
+    display.textContent = texto;
   }
 };
 const inserirNumero = (evento) => atualizarDisplay(evento.target.textContent);
@@ -49,7 +49,7 @@ const selecionarOperador = (evento) => {
     novoNumero = true;
     operador = evento.target.textContent;
     numeroAnterior = parseFloat(display.textContent);
-    console.log(operador);
+    // console.log(operador);
   }
 };
 operadores.forEach((operador) =>
@@ -67,7 +67,7 @@ const ativarIgual = () => {
 document.getElementById("igual").addEventListener("click", ativarIgual);
 
 //Botão de apagar o display
-const limparDisplay = () => (display.textContent = "  ");
+const limparDisplay = () => (display.textContent = "");
 document
   .getElementById("limparDisplay")
   .addEventListener("click", limparDisplay);

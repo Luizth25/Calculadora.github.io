@@ -36,6 +36,7 @@ body {
 .display {
   border: 5px solid rgb(3, 29, 46);
   padding: 30px;
+  height: 90px;
   width: 250px;
   margin-left: 100px;
   background-color: rgb(176, 226, 235);
