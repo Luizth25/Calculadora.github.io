@@ -36,7 +36,7 @@ const atualizarDisplay = (texto) => {
     novoNumero = false;
   } else {
     //Está concatenando o texto do display
-    display.textContent = texto;
+    display.textContent += texto;
   }
 };
 const inserirNumero = (evento) => atualizarDisplay(evento.target.textContent);
